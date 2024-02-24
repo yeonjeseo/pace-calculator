@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,13 +7,20 @@
     <meta name="keywords" content="마라톤, 페이스 계산기, Yasso 800, 달리기, 트레이닝"/>
     <meta name="author" content="Yeon Jeffrey Seo, Byeori Yang"/>
     <title>마라톤 페이스 계산기</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
     <link rel="shortcut icon" href="favicon.png" sizes="16x16" type="image/x-icon">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <script defer src="./index.js" type="module"></script>
 
   <body>
-    <h1>마라톤 페이스 계산기</h1>
+    <header>
+      <div class="tab">
+        <h3 id="tab_marathon_calc" class="tab_selected">마라톤 페이스 계산기</h3>
+        <span>|</span>
+        <h3 id="tab_yasso_calc">Yasso800 페이스 계산기</h3>
+      </div>
+    </header>
     <form id="paceCalculator">
       <div>
         <label for="distance">거리 (km):</label>
@@ -27,34 +34,36 @@
         <label for="pace">페이스 (mm:ss per km):</label>
         <input type="text" id="pace" name="pace" />
       </div>
-      <div>
+      <div class="buttons">
         <button type="button" id="btn-calculate-pace">페이스 계산</button>
         <button type="button" id="btn-calculate-distance">거리 계산</button>
       </div>
     </form>
 
-    <h1>Yasso 800 페이스 계산하기</h1>
+    
     <form id="yassoCalculator">
       <div>
         <label for="marathonTime">마라톤 목표 시간 (hh:mm):</label>
         <input type="text" id="marathonTime" name="marathonTime" />
       </div>
-      <div>
+      <div class="buttons">
         <button type="button" id="btn-calculate-yasso-pace"">Yasso 800 페이스 계산</button>
       </div>
-      <div>
-        <label for="yassoPace">Yasso 800 foq 랩 타임 (mm:ss):</label>
-        <input type="text" id="yassoPace" name="yassoPace" readonly>
+      <div id="yassoResult">
+        <div>
+          <label for="yassoPace">Yasso 800 foq 랩 타임 (mm:ss):</label>
+          <input type="text" id="yassoPace" name="yassoPace" readonly>
+        </div>
+  
+        <div>
+            <label for="timeFor400m">400미터 소요 시간 (mm:ss):</label>
+            <input type="text" id="timeFor400m" name="timeFor400m" readonly>
+        </div>
+        <div>
+          <label for="kmPace">킬로미터당 페이스 (mm:ss):</label>
+          <input type="text" id="kmPace" name="kmPace" readonly>
       </div>
-
-      <div>
-          <label for="timeFor400m">400미터 소요 시간 (mm:ss):</label>
-          <input type="text" id="timeFor400m" name="timeFor400m" readonly>
       </div>
-      <div>
-        <label for="kmPace">킬로미터당 페이스 (mm:ss):</label>
-        <input type="text" id="kmPace" name="kmPace" readonly>
-    </div>
     </form>
   </body>
 </html>

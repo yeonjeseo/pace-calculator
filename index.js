@@ -1,5 +1,28 @@
 const btnCalculatePace = document.getElementById('btn-calculate-pace');
-const bntCalculateYassoPace = document.getElementById('btn-calculate-yasso-pace');
+const btnCalculateYassoPace = document.getElementById('btn-calculate-yasso-pace');
+const marathonTab = document.getElementById('tab_marathon_calc');
+const yassoTab = document.getElementById('tab_yasso_calc');
+
+const onClickTabButton = (tabId) => {
+  const marathonContainer = document.getElementById('paceCalculator');
+  const yassoContainer = document.getElementById('yassoCalculator');
+
+  switch (tabId) {
+    case "marathon": {
+      marathonContainer.style.display = "flex";
+      yassoContainer.style.display = "none";
+      marathonTab.className = "tab_selected";
+      yassoTab.className = "";
+      break;
+    }
+    case "yasso": {
+      yassoContainer.style.display = "flex";
+      marathonContainer.style.display = "none";
+      yassoTab.className = "tab_selected";
+      marathonTab.className = "";
+    }
+  }
+}
 
 function calculatePace() {
   const distance = document.getElementById('distance').value;
@@ -34,7 +57,8 @@ function calculateDistance() {
 
 function calculateYassoPace() {
   const marathonTime = document.getElementById('marathonTime').value;
-
+  const resultContainer = document.getElementById("yassoResult");
+  resultContainer.style.display = "flex";
   if (marathonTime) {
     const [hours, minutes] = marathonTime.split(':').map((num) => parseFloat(num));
 
@@ -64,6 +88,8 @@ function padZero(number) {
 }
 
 btnCalculatePace.addEventListener('click', calculatePace);
-bntCalculateYassoPace.addEventListener('click', calculateYassoPace);
+btnCalculateYassoPace.addEventListener('click', calculateYassoPace);
+marathonTab.addEventListener('click', () => onClickTabButton("marathon"));
+yassoTab.addEventListener('click', () => onClickTabButton("yasso"));
 
-document.addEventListener('DOMContentLoaded', () => {});
+document.addEventListener('DOMContentLoaded', () => { });

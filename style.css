@@ -1,0 +1,64 @@
+*, body {
+    font-family: Pretendard, sans-serif;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header>.tab {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    color: #2F3939;
+}
+header>.tab>h3 {
+    cursor: pointer;
+}
+header>.tab>span {
+    cursor: default;
+    color: #B0BAB9;
+}
+header>.tab>.tab_selected {
+    color: #1A998F;
+    font-weight: bold;
+}
+form {
+    max-width: 480px;
+    margin: 20px auto;
+    border: 1px solid #B0BAB9;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+#yassoCalculator {
+    display: none;
+}
+#yassoResult {
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+}
+.buttons {
+    gap: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    /* margin: 0 auto; */
+}
+.buttons > button {
+    background-color: #1A998F;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
